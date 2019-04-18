@@ -14,7 +14,7 @@ def uvMapperCylinder(obj):
     # new texture    
     texUV = bpy.data.textures.new(texname,type = "IMAGE")
     # Write the path of folder which store a image
-    image_path = os.getenv("HOMEDRIVE") + os.getenv("HOMEPATH") + "\\Pictures\\texture_image\\kukki.png"
+    image_path = os.getenv("HOMEDRIVE") + os.getenv("HOMEPATH") + "\\Pictures\\texture_image\\image.png"
     image = bpy.data.images.load(image_path)
     texUV.image = image
     
