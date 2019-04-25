@@ -2,10 +2,10 @@ import bpy
 import os
 
 
-def uvMapperCylinder(obj):
+def texMapperObject(obj):
     
-    matname = "cylindermat"
-    texname = "cylindertex"
+    matname = obj.name + "mat"
+    texname = obj.name + "tex"
     # new material
     if not matname in bpy.data.materials:
         material = bpy.data.materials.new(matname)
@@ -22,7 +22,7 @@ def uvMapperCylinder(obj):
     bpy.data.materials[matname].texture_slots.add()
     bpy.data.materials[matname].active_texture = texUV
     bpy.data.materials[matname].texture_slots[0].texture_coords = "OBJECT"
-    bpy.data.materials[matname].texture_slots[0].mapping = "TUBE"
+    bpy.data.materials[matname].texture_slots[0].mapping = "CUBE"
     
     
  def delete_old_stuff():
@@ -50,3 +50,9 @@ def uvMapperCylinder(obj):
         # delete all, except »Render Result«
         if i.name != "Render Result":
             bpy.data.images.remove(i)
+            
+ 
+            
+if __name__ == "__main__":
+    for obj in bpy.data.objects:
+        texMapperCylinder(obj)
